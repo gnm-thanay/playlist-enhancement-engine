@@ -1,18 +1,16 @@
 
 /* Header styles */
 header {
-    background-color: black; /* Change to your preferred background color */
-    color: #fff; /* Change to your preferred font color */
+    background-color: black;
+    color: #fff;
     padding: 10px 0; /* Adjust padding as needed */
 }
 
 /* Header h3 styles */
 header h3 {
     margin: 0; /* Remove default margin */
-    font-family: 'Courier New', sans-serif; /* Change to your preferred font family */
+    font-family: 'Courier New', sans-serif;
 }
-
-/* Add this CSS to your stylesheets or in a <style> tag in your HTML file */
 
 .label-styled {
     color: #ececec;
@@ -70,6 +68,14 @@ body {
     margin-top: -50%;
 }
 
+.image {
+    background: black;
+    /*grid-column: 1/4;*/
+    /*grid-row: 2;*/
+    /*margin-top: 80px;*/
+    /*margin-right: 20px;*/
+}
+
 .results{
     grid-column: 4/6;
     grid-row:1;
@@ -115,9 +121,9 @@ input.button1, input.input1, #number-of-recs{
 }
 
 input.input1 {
-    background: seashell;
+    background-color: white;
+    color: #1DB954;
 }
-
 
 input.button1:hover{
     text-shadow: 0 0 2em rgba(255,255,255,1);
@@ -127,7 +133,7 @@ input.button1:hover{
 
 input.input1:hover{
     text-shadow: 0 0 2em rgba(255,255,255,1);
-    color:#FFFFFF;
+    color:white;
     border-color:#1DB954;
 }
 

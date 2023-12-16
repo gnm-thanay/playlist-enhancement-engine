@@ -8,7 +8,7 @@ def extract(URL):
     client_id = os.getenv("CLIENT_ID")
     client_secret = os.getenv("CLIENT_SECRET")
 
-    # use the clint secret and id details
+    # use the client secret and id details
     client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 

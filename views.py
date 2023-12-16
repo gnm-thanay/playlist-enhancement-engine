@@ -1,6 +1,7 @@
 from flask import render_template, request, Blueprint
 from features import extract, pd
 from model import recommend_from_playlist
+from main import *
 
 views = Blueprint(__name__, "views")
 
@@ -28,10 +29,36 @@ def recommend():
     top40 = recommend_from_playlist(songDF, complete_feature_set, df)
 
     number_of_recs = int(request.form['number-of-recs'])
-
     my_songs = []
     for i in range(number_of_recs):
         my_songs.append([str(top40.iloc[i, 0]) + ' - ' + '"' + str(top40.iloc[i, 2]) + '"',
                          "https://open.spotify.com/track/" + str(top40.iloc[i, 1])])
 
-    return render_template('results.html', songs=my_songs)
+    templates = 'results.html'
+    return render_template(templates, songs=my_songs)
+
+
+@views.route('/top-artist')
+def image():
+
+    token = get_token()
+    result = search_for_artist(token, "swift")
+
+    artist_name = result['name']
+    artist_image = result['images'][0]
+
+    image_parameters = {
+        'height': artist_image['height'],
+        'url': artist_image['url'],
+        'width': artist_image['width']
+    }
+
+    artist_id = result["id"]
+    songs = get_songs_by_artist(token, artist_id)
+    songs_list = []
+
+    for idx, song in enumerate(songs):
+        songs_list.append(song['name'])
+        # print(f"{idx + 1}. {song['name']}")
+
+    return render_template('image.html', image_parameters=image_parameters, top_artist_name=artist_name, songs=songs_list)

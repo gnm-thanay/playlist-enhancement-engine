@@ -1,3 +1,5 @@
+Clone this repository. Then follow the below steps.
+
 Steps to run the application
 - Open terminal
 - Navigate to playlist-enhancement-engine/application directory
